@@ -1,0 +1,4 @@
+aiohttp~=3.8.4
+aiogram~=3.0.0b7
+python-dotenv~=1.0.0
+waifu-py~=1.0.3

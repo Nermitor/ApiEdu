@@ -27,12 +27,14 @@ async def handle_sfw_category(query: CallbackQuery, callback_data: WaifuCategory
     async with waifu.WaifuAioClient() as session:
         if waifu_type == 'sfw':
             image = await session.sfw(category)
+            keyboard = sfw_categories_inline_keyboard
         else:
             image = await session.nsfw(category)
+            keyboard = nsfw_categories_inline_keyboard
     if image.endswith('.gif'):
-        await query.message.answer_animation(image, reply_markup=sfw_categories_inline_keyboard)
+        await query.message.answer_animation(image, reply_markup=keyboard)
     else:
-        await query.message.answer_photo(image, reply_markup=sfw_categories_inline_keyboard)
+        await query.message.answer_photo(image, reply_markup=keyboard)
 
 
 #  Написать обработчик команды /waifu {type} {category}
