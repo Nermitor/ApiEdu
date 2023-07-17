@@ -1,6 +1,6 @@
 from aiogram import BaseMiddleware
 
-from API.waifu import WaifuApi
+from API.waifu_api import WaifuApi
 
 
 class WaifuApiMiddleWare(BaseMiddleware):

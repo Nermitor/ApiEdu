@@ -7,3 +7,4 @@ class WaifuTypeCallbackData(CallbackData, prefix='waifu_type'):
 
 class WaifuCategoryCallbackData(CallbackData, prefix='waifu_category'):
     category: str
+    type: str
