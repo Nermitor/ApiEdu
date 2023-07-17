@@ -48,11 +48,13 @@ async def get_waifu_command(message: Message):
             async with waifu.WaifuAioClient() as session:
                 if waifu_type == 'sfw':
                     image = await session.sfw(waifu_category)
+                    keyboard = sfw_categories_inline_keyboard
                 else:
                     image = await session.nsfw(waifu_category)
+                    keyboard = nsfw_categories_inline_keyboard
             if image.endswith('.gif'):
-                await message.answer_animation(image, reply_markup=sfw_categories_inline_keyboard)
+                await message.answer_animation(image, reply_markup=keyboard)
             else:
-                await message.answer_photo(image, reply_markup=sfw_categories_inline_keyboard)
+                await message.answer_photo(image, reply_markup=keyboard)
         else:
             await message.answer('Возможно вы ввели недопустимый тип или категорию')
