@@ -4,11 +4,12 @@ from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 
 from config import config  # Config
-from handlers import common
+from handlers import common, waifu
 
 
 def register_all_routers(dp: Dispatcher):
     dp.include_router(common.common_router)
+    dp.include_router(waifu.waifu_router)
 
 
 async def main():
